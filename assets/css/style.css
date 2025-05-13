@@ -1,0 +1,370 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+
+@property --color-primary {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: rebeccapurple;
+}
+/* Définition couleur principale personnalisée */
+
+html {
+    font-family: "Comic Neue", sans-serif;
+    scroll-behavior: smooth; /* Défilement doux */
+}
+
+.container {
+    width: 90% ; /* Largeur du container */
+    margin: 0 auto; /* Centrer container */
+}
+
+/*********************************************
+        CLASSES UTILITAIRES
+*********************************************/
+
+.text-center {
+    text-align: center; /* Centrer le texte */
+}
+
+.bg-light {
+    background-color: #eee; /* Fond gris clair */
+}
+
+/*********************************************
+        BOUTONS
+*********************************************/
+
+.btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 2px;
+    transition: 0.5s; /* Transition douce */
+
+}
+
+.btn-primary {
+    background-color: var(--color-primary); /* Couleur primaire fond */
+    color: white;
+    border-color: var(--color-primary); /* Couleur primaire bordure */
+}
+
+.btn-primary:hover {
+    background-color: white;
+    color: var(--color-primary); /* Couleur primaire texte au hover */
+}
+
+.btn-outline-primary {
+    background-color: white;
+    color: var(--color-primary); /* Couleur primaire texte */
+    border-color: var(--color-primary); /* Couleur primaire bordure */
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--color-primary); /* Couleur primaire fond au hover */
+    color: white;
+}
+
+/*********************************************
+        CARD
+*********************************************/
+
+.card {
+    display: flex;
+    flex-direction: column; /* Direction colonne */
+    align-items: center; /* Alignement centré */
+    gap: 1rem;
+    padding: 2rem 1rem;
+    background-color: white; /* Fond blanc */
+}
+
+.card > * {
+    margin: 0;
+}
+
+.card h1, .card h2, .card h3, .card h4, .card h5, .card h6 {
+    text-align: center;
+}
+
+
+/*********************************************
+        HEADER
+*********************************************/
+
+#header {
+    position: fixed; /* Header fixe */
+    top: 0; /* Coller en haut */
+    width: 100%; /* Largeur 100% */
+    background-color: white; /* Fond blanc */
+    z-index: 99; /* Priorité haute */
+}
+
+#header >.container {
+    display: flex;
+    justify-content: space-between; /* Espacement éléments header */
+    align-items: center; /* Alignement vertical centré */
+}
+
+#header .logo {
+    height: 50px;
+}
+
+#header .logo img{
+    height: 100%;
+}
+
+#header nav ul {
+    display: flex;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+    list-style: none; /* Pas de puces */
+}
+
+#header nav ul a {
+    color: black;
+    text-decoration: none;
+}
+
+/*********************************************
+        SECTION HOME
+*********************************************/
+
+#home {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Alignement vertical centré */
+    justify-content: center; /* Alignement horizontal centré */
+    height: 100vh; /* Hauteur 100% viewport */
+    color: white; /* Texte blanc */
+    background-image: url('../images/paysage.webp'); /* Image de fond */
+    background-size: cover; /* Image de fond couvre */
+    background-color: rgba(46, 4, 46, 0.5); /* Couleur sombre overlay */
+    background-blend-mode: overlay; /* Mode fusion overlay */
+    position: relative;
+    overflow: hidden; /* Cacher overflow */
+}
+
+#home > h1,
+#home > h2 {
+    margin: 0;
+}
+
+#home::after {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-image: url('../images/Voiture.png'); /* Image voiture animation */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    animation: flyPlane 15s ease-in infinite; /* Animation voiture */
+}
+
+@keyframes flyPlane {
+    0% {
+        left: -200px; /* Départ hors écran gauche */
+        top: calc(100% - 200px);
+    }
+    100% {
+        left: 100%; /* Arrivée hors écran droite */
+        top: calc(100% - 200px);
+    }
+}
+
+/*********************************************
+         SECTION Contact
+*********************************************/
+
+#contact {
+    text-align: center;
+    padding: 1rem ; /* Espacement section contact */
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: auto;
+}
+
+.contact-form .row {
+    display: flex;
+    box-sizing: border-box;
+    gap: 15px;
+}
+
+.contact-form .col {
+    flex: 1;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    padding-right: 0px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #f7f7f7;
+}
+
+.contact-form textarea {
+    height: 150px;
+    resize: none;
+}
+
+/*********************************************
+         FOOTER
+*********************************************/
+
+#footer {
+    background-color: #000000; /* Couleur de fond footer */
+    color: white;
+    padding: 2rem;
+}
+
+#footer .container {
+    display: flex;
+    flex-direction: column; /* Organisation colonne footer */
+    gap: 2rem; /* Espacement sections footer */
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between; /* Espacement footer bottom */
+    align-items: center;
+    padding-top: 2rem;
+    border-top: 1px solid #555; /* Ligne de séparation */
+}
+
+.footer-bottom-left, .footer-bottom-right {
+    display: flex;
+    align-items: center;
+}
+
+.footer-bottom-left .logo-footer img {
+    height: 40px; /* Logo footer réduit */
+    margin-right: 1rem;
+}
+
+.footer-bottom-left .copyright {
+    font-size: 0.9em;
+    color: #ccc;
+    margin: 0;
+}
+
+.footer-bottom-right nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 1rem;
+}
+
+.footer-bottom-right nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.9em;
+}
+
+/*********************************************
+         SECTION BackToTOP
+*********************************************/
+
+#backToTop {
+    position: fixed; /* Bouton BackToTop fixe */
+    bottom: 20px; /* Position bas */
+    right: 20px; /* Position droite */
+    width: 50px;
+    height: 50px;
+    background-color: var(--color-primary); /* Couleur primaire fond bouton */
+    color: white;
+    border-radius: 50%; /* Bouton rond */
+    text-align: center;
+    line-height: 50px;
+    font-size: 24px;
+    text-decoration: none;
+    opacity: 0.7; /* Opacité 70% */
+    transition: opacity 0.3s; /* Transition opacité */
+}
+
+#backToTop:hover {
+    opacity: 1;
+    background-color: white;
+    color: var(--color-primary); /* Couleur primaire texte au hover */
+    border: 2px solid var(--color-primary); /* Bordure au hover */
+}
+
+/* Tablette */
+@media screen and (max-width: 800px) {
+    .container {
+        width: 100%; /* Container pleine largeur */
+        margin: 0;
+        padding: 0 10px;
+        box-sizing: border-box;
+    }
+
+}
+
+/* Téléphone */
+@media screen and (max-width: 500px) {
+    /* Général */
+    .container {
+        width: 100%;
+        margin: 0;
+        padding: 0 10px;
+        box-sizing: border-box;
+    }
+
+    /* Formulaire de contact */
+    .contact-form input,
+    .contact-form textarea {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 16px;
+        background-color: #f7f7f7;
+        box-sizing: border-box;
+    }
+
+    .contact-form .row {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .contact-form .col {
+        flex: 1;
+        margin-bottom: 15px;
+        padding: 0; 
+        box-sizing: border-box; 
+    }
+
+    .contact-form textarea {
+        height: 150px;
+        resize: none;
+    }
+
+    .contact-form {
+        padding: 0; 
+        box-sizing: border-box;
+    }
+
+    /* Pied de page */
+    #footer {
+        width: 100%; 
+        box-sizing: border-box;
+    }
+
+    #footer .container {
+        flex-direction: column;
+        align-items: stretch;
+        box-sizing: border-box;
+    }
+
+}
