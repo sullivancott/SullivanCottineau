@@ -149,14 +149,16 @@ html {
 }
 
 #home > h1 {
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    font-size: 4rem; /* Taille du titre */
+    text-shadow: 2px 2px 10px rgb(255, 255, 255); /* Ombre portée */
 }
 
 #home > h2 {
+    font-size: 1.8rem; /* Taille du sous-titre */
     margin: 0;
     font-family: 'Lato', sans-serif;
     font-weight: 400;
-    text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+    text-shadow: 1px 1px 5px rgb(255, 255, 255); 
 }
 
 #home::after {
