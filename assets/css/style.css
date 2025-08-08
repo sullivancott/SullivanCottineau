@@ -75,7 +75,7 @@ html {
     top: 0; /* Coller en haut */
     width: 100%; /* Largeur 100% */
     background-color: transparent; /* Fond transparent */
-    z-index: 99; /* Priorité haute */
+    z-index: 1000; /* Priorité haute */
     transition: background-color 0.4s ease, box-shadow 0.4s ease;
 }
 
@@ -108,8 +108,11 @@ html {
 }
 
 #header nav ul a {
-    color: black;
+    color: var(--color-primary); /* Couleur primaire texte */
     text-decoration: none;
+    font-weight: bold;
+    position: relative;
+    padding: 5px 0;
 }
 
 #header nav ul a::after {
