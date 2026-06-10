@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Fonction utilitaire pour vérifier si on est sur un appareil mobile
     const isMobile = () => window.innerWidth <= 768;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     // ==================== GESTION DU SCROLL (Optimisée avec requestAnimationFrame) ====================
     let isTicking = false;
@@ -62,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const targetElement = document.querySelector(targetId);
             
             if (targetElement) {
-                targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                targetElement.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'start' });
             }
             // Ferme le menu mobile si un lien est cliqué
             if (isMobile() && nav && nav.classList.contains('mobile-active')) {
@@ -166,7 +167,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // ==================== ANIMATION "MACHINE À ÉCRIRE" ====================
     const homeTitle = document.querySelector('#home h1');
 
-    if (homeTitle) {
+    if (homeTitle && !prefersReducedMotion) {
         const originalText = homeTitle.textContent;
         // On vide le contenu pour le reconstruire
         homeTitle.innerHTML = ''; 
@@ -220,6 +221,12 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ==================== GESTION DE LA FENÊTRE MODALE AMÉLIORÉE (avec Iframe) ====================
+    // ==================== UTILITAIRES UI ====================
+    const currentYear = document.getElementById('currentYear');
+    if (currentYear) {
+        currentYear.textContent = new Date().getFullYear();
+    }
+
     if (modalContainer) {
         const modalTitle = document.getElementById('modal-title');
         const modalBody = document.getElementById('modal-body');
